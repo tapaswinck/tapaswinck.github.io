@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chiruvanuru Kumar Tapaswin</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #555555;
+    --border: #dddddd;
+    --link: #1a4480;
+    --accent-bg: #f7f6f3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.65;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 5rem;
+  }
+
+  h1, h2, h3, nav, .meta, .tag, .label {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── HEADER ── */
+  header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h1 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .contact-line {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .contact-line a { margin-right: 1rem; }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  nav a {
+    color: var(--text);
+    border-bottom: 1px solid transparent;
+    margin-right: 1.5rem;
+  }
+
+  nav a:last-child { margin-right: 0; }
+
+  nav a:hover {
+    border-bottom-color: var(--text);
+    text-decoration: none;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    margin-bottom: 2.75rem;
+  }
+
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  p { margin-bottom: 0.9rem; }
+
+  /* ── ABOUT ── */
+  #about p:last-child { margin-bottom: 0; }
+
+  /* ── EXPERIENCE / EDUCATION ── */
+  .entry {
+    margin-bottom: 1.5rem;
+  }
+
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .entry-role {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .entry-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .entry-org {
+    font-size: 0.92rem;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .entry-desc {
+    font-size: 0.96rem;
+    color: var(--text);
+  }
+
+  .entry-desc ul {
+    margin: 0.4rem 0 0 1.1rem;
+    padding: 0;
+  }
+
+  .entry-desc li {
+    margin-bottom: 0.3rem;
+  }
+
+  /* ── PUBLICATIONS / PROJECTS (citation style) ── */
+  .pub-list {
+    list-style: none;
+  }
+
+  .pub-item {
+    margin-bottom: 1.3rem;
+    padding-left: 1.6rem;
+    position: relative;
+  }
+
+  .pub-item:last-child { margin-bottom: 0; }
+
+  .pub-number {
+    position: absolute;
+    left: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .pub-title {
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+
+  .pub-venue {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 0.3rem;
+  }
+
+  .pub-desc {
+    font-size: 0.92rem;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+
+  .pub-tools {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .pub-tools span:not(:last-child)::after {
+    content: '·';
+    margin: 0 0.4rem;
+  }
+
+  .pub-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+  }
+
+  /* ── SKILLS ── */
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+
+  .skills-table tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skills-table tr:last-child { border-bottom: none; }
+
+  .skills-table td {
+    padding: 0.6rem 0;
+    vertical-align: top;
+  }
+
+  .skills-table td:first-child {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    color: var(--muted);
+    width: 150px;
+    padding-right: 1rem;
+  }
+
+  /* ── AWARDS ── */
+  .award-list {
+    list-style: none;
+  }
+
+  .award-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .award-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .award-title {
+    font-weight: 600;
+    font-size: 0.96rem;
+  }
+
+  .award-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    body { padding: 2rem 1.25rem 3rem; font-size: 16px; }
+    nav { flex-wrap: wrap; gap: 1rem; }
+    .entry-head { flex-direction: column; align-items: flex-start; }
+    .skills-table td:first-child { width: 110px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Chiruvanuru Kumar Tapaswin</h1>
+  <div class="subtitle">Physics &amp; Mathematics — Washington College</div>
+  <div class="contact-line">
+    <a href="mailto:tapaswinck@gmail.com">tapaswinck@gmail.com</a>
+    <a href="https://github.com/tapaswinck" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/chiruvanuru-kumar-tapaswin" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#awards">Awards &amp; honors</a>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>About</h2>
+  <p>
+    I am a recent graduate in Physics and Mathematics from Washington College (GPA 3.689/4.00),
+    with research experience spanning high-energy particle physics, astrophysics, and
+    computational engineering. My work has included a study of likelihood methods for
+    Beyond-the-Standard-Model Higgs-boson searches with the US ATLAS collaboration, an analysis
+    of proton-proton collision data from the ATLAS detector at CERN, and the validation of
+    Cosmic Inflation models against Planck satellite data.
+  </p>
+  <p>
+    Alongside this research, I have built systems-level and applied engineering experience:
+    deploying a ten-node high-performance computing cluster, and designing and building an
+    electric propulsion system for a competition sailing vessel. More recently, my independent
+    work has extended into machine learning, including physics-informed neural networks,
+    variational autoencoders, and Bayesian optimisation applied to aerospace design problems.
+  </p>
+  <p>
+    I am currently based in India and am open to research, data science, and engineering roles.
+  </p>
+</section>
+
+<section id="experience">
+  <h2>Research experience</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-role">Researcher, US ATLAS SUPER Program</span>
+      <span class="entry-date">May 2024 – Dec 2024</span>
+    </div>
+    <div class="entry-org">Washington College</div>
+    <div class="entry-desc">
+      Conducted a comprehensive study of likelihood methods for Beyond-the-Standard-Model
+      Higgs-boson searches, in collaboration with researchers from multiple universities. Applied
+      kinematic analysis techniques in Python, C++, and ROOT, and investigated simulated events
+      using Boosted Decision Trees and likelihood methods to optimise detection algorithms.
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-role">Particle Physics Researcher</span>
+      <span class="entry-date">May 2022 – Aug 2022</span>
+    </div>
+    <div class="entry-org">CERN / Washington College</div>
+    <div class="entry-desc">
+      Analysed proton-proton collision data from the ATLAS detector using Monte Carlo
+      simulations. Applied Boosted Decision Trees and Deep Neural Networks to improve signal
+      efficiency for the Di-Higgs process, achieving an approximate 30% increase in significance
+      through selection of uncorrelated kinematic variables.
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-role">Astrophysics Data Analyst</span>
+      <span class="entry-date">Feb 2023 – May 2023</span>
+    </div>
+    <div class="entry-org">Washington College</div>
+    <div class="entry-desc">
+      Assisted faculty in validating theoretical Cosmic Inflation models against empirical Planck
+      satellite data using Mathematica. Developed mathematical models of early-universe growth
+      dynamics and refined them through iterative comparison with observational data.
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-role">Lab Assistant, Particle Detector Experiments</span>
+      <span class="entry-date">May 2023 – Aug 2023</span>
+    </div>
+    <div class="entry-org">Washington College</div>
+    <div class="entry-desc">
+      Benchmarked and documented experiments on the MINIPIX education-grade particle detector,
+      measuring the energy spectra of alpha, beta, gamma, and muon particles as a function of
+      shielding material and source separation, with data analysis in Python.
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-role">Systems Engineering Intern</span>
+      <span class="entry-date">Sept 2023 – Feb 2024</span>
+    </div>
+    <div class="entry-org">Washington College</div>
+    <div class="entry-desc">
+      Designed and deployed a ten-node high-performance computing cluster using Apache Hadoop for
+      the Computational Chemistry department, configuring network interfaces and switches to
+      improve throughput and reduce reliance on external computing resources.
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-role">Projects Member, Electric Boat Team</span>
+      <span class="entry-date">Aug 2022 – Dec 2024</span>
+    </div>
+    <div class="entry-org">Washington College — American Society of Naval Engineers (ASNE)</div>
+    <div class="entry-desc">
+      Designed vessels for the ASNE Promoting Electric Propulsion intercollegiate competition.
+      Converted a 50 HP petrol outboard motor to electric propulsion, assembled a 23-foot
+      trimaran, and built a 43 kWh LiFePO4 battery system with a battery management system and
+      6.6 kW charger. The team won the PEP race.
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Selected projects</h2>
+  <ol class="pub-list">
+
+    <li class="pub-item">
+      <span class="pub-number">1.</span>
+      <div class="pub-title">Sounding rocket full design suite</div>
+      <div class="pub-venue">Independent project</div>
+      <div class="pub-desc">
+        An end-to-end multidisciplinary design optimisation pipeline for sounding rockets,
+        coupling parametric geometry, Barrowman stability analysis, six-degree-of-freedom
+        trajectory simulation, structural buckling analysis, and OpenFOAM CFD with a
+        physics-informed neural network surrogate, a variational autoencoder over nose-cone
+        shape families, and Bayesian and reinforcement-learning-based design search.
+      </div>
+      <div class="pub-tools">
+        <span>Python</span><span>PyTorch</span><span>OpenFOAM</span><span>SciPy</span>
+      </div>
+      <div class="pub-link"><a href="https://github.com/tapaswinck/sounding-rocket-design-suite" target="_blank" rel="noopener">Code →</a></div>
+    </li>
+
+    <li class="pub-item">
+      <span class="pub-number">2.</span>
+      <div class="pub-title">3D drone propeller design suite</div>
+      <div class="pub-venue">Independent project</div>
+      <div class="pub-desc">
+        A parametric propeller design pipeline combining Blade Element Momentum theory and the
+        Vortex Lattice Method with a physics-informed neural network surrogate, a variational
+        autoencoder for shape-space exploration, and a Fourier Neural Operator for pressure-field
+        prediction, alongside a complete OpenFOAM compressible CFD case generator.
+      </div>
+      <div class="pub-tools">
+        <span>Python</span><span>PyTorch</span><span>OpenFOAM</span><span>Plotly</span>
+      </div>
+      <div class="pub-link"><a href="https://github.com/tapaswinck/propeller-design-suite" target="_blank" rel="noopener">Code →</a></div>
+    </li>
+
+    <li class="pub-item">
+      <span class="pub-number">3.</span>
+      <div class="pub-title">Advanced skill embedding engine</div>
+      <div class="pub-venue">Independent project</div>
+      <div class="pub-desc">
+        A statistical and semantic intelligence system over a skill corpus, using a weighted
+        ensemble of sentence-transformer embeddings, entropy-based manifold geometry, hierarchical
+        clustering for taxonomy construction, and an interactive UMAP projection with a
+        cosine-similarity search engine.
+      </div>
+      <div class="pub-tools">
+        <span>Python</span><span>Sentence-Transformers</span><span>UMAP</span><span>scikit-learn</span>
+      </div>
+      <div class="pub-link"><a href="https://github.com/tapaswinck/skill-embedding-engine" target="_blank" rel="noopener">Code →</a></div>
+    </li>
+
+    <li class="pub-item">
+      <span class="pub-number">4.</span>
+      <div class="pub-title">Stock price prediction with walk-forward validation</div>
+      <div class="pub-venue">Independent project</div>
+      <div class="pub-desc">
+        A methodologically rigorous evaluation of LSTM and attention-based architectures for
+        next-day stock price prediction, using rolling-origin cross-validation, a naive baseline
+        comparison, and a transaction-cost-aware backtest, across a multi-ticker basket.
+      </div>
+      <div class="pub-tools">
+        <span>Python</span><span>TensorFlow</span><span>scikit-learn</span><span>Flask</span>
+      </div>
+      <div class="pub-link"><a href="https://github.com/tapaswinck/Stock-model-prediction" target="_blank" rel="noopener">Code →</a></div>
+    </li>
+
+  </ol>
+</section>
+
+<section id="skills">
+  <h2>Technical skills</h2>
+  <table class="skills-table">
+    <tr>
+      <td>Languages</td>
+      <td>Python, C, C++, Java, MATLAB, Mathematica, SQL/MySQL, LaTeX, Linux (bash/zsh)</td>
+    </tr>
+    <tr>
+      <td>ML &amp; AI</td>
+      <td>PyTorch, TensorFlow, scikit-learn, CUDA, Qiskit — BDTs, DNNs, PINNs, VAEs</td>
+    </tr>
+    <tr>
+      <td>Scientific computing</td>
+      <td>NumPy, SciPy, SymPy, pandas, Matplotlib, ROOT, OpenFOAM, Monte Carlo methods</td>
+    </tr>
+    <tr>
+      <td>Infrastructure</td>
+      <td>HPC clusters, Apache Hadoop, networking/NICs, Linux systems administration</td>
+    </tr>
+  </table>
+</section>
+
+<section id="awards">
+  <h2>Honors &amp; awards</h2>
+  <ul class="award-list">
+
+    <li class="award-item">
+      <div class="award-title">Next Genius Foundation Scholarship</div>
+      <div class="award-desc">$112,000 scholarship to attend Washington College, awarded for academic excellence.</div>
+    </li>
+
+    <li class="award-item">
+      <div class="award-title">Pi Mu Epsilon — National Mathematics Honor Society</div>
+      <div class="award-desc">Inducted for exceptional mathematical achievement.</div>
+    </li>
+
+    <li class="award-item">
+      <div class="award-title">John S. Toll Prize in Physics</div>
+      <div class="award-desc">Awarded for showcasing exceptional promise in the field of physics at Washington College.</div>
+    </li>
+
+    <li class="award-item">
+      <div class="award-title">Tai Sung An Memorial Prize</div>
+      <div class="award-desc">Awarded for exemplifying the benefits of intercultural education at Washington College.</div>
+    </li>
+
+    <li class="award-item">
+      <div class="award-title">US ATLAS SUPER Grant, 2024</div>
+      <div class="award-desc">$6,000 research grant for sensitivity studies in BSM Higgs-boson searches.</div>
+    </li>
+
+    <li class="award-item">
+      <div class="award-title">Conference talk, AstroPhilly22</div>
+      <div class="award-desc">"Higgs Boson as a Tool for Search for New Laws of Physics at CERN's Large Hadron Collider." Villanova University, 2022.</div>
+    </li>
+
+  </ul>
+</section>
+
+<footer>
+  <p>Chiruvanuru Kumar Tapaswin · Last updated 2026</p>
+</footer>
+
+</body>
+</html>
